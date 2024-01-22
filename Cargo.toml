@@ -1,0 +1,12 @@
+[workspace]
+members = ["trie_diff", "trie_query"]
+resolver = "2"
+
+[patch."https://github.com/0xPolygonZero/proof-protocol-decoder.git"]
+protocol_decoder = { path = "../../proof_protocol_decoder/protocol_decoder" }
+
+[patch.crates-io]
+eth_trie_utils = { path = "../../eth_trie_utils" }
+
+[patch."https://github.com/0xPolygonZero/eth_trie_utils.git"]
+eth_trie_utils = { path = "../../eth_trie_utils" }
