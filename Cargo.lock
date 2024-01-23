@@ -113,6 +113,9 @@ name = "anyhow"
 version = "1.0.79"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "080e9890a082662b09c1ad45f567faeeb47f22b5fb23895fbe1e651e718e25ca"
+dependencies = [
+ "backtrace",
+]
 
 [[package]]
 name = "arrayvec"
@@ -304,6 +307,16 @@ name = "colorchoice"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "acbf1af155f9b9ef647e42cdc158db4b64a1b61f743629225fde6f3e0be2a7c7"
+
+[[package]]
+name = "common"
+version = "0.1.0"
+dependencies = [
+ "eth_trie_utils",
+ "hex",
+ "protocol_decoder",
+ "serde_json",
+]
 
 [[package]]
 name = "const-random"
@@ -2087,9 +2100,9 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "clap",
+ "common",
  "eth_trie_utils",
  "ethereum-types",
- "hex",
  "pretty_env_logger",
  "protocol_decoder",
  "serde_json",
@@ -2098,6 +2111,13 @@ dependencies = [
 [[package]]
 name = "trie_query"
 version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "common",
+ "eth_trie_utils",
+ "serde_json",
+]
 
 [[package]]
 name = "try-lock"

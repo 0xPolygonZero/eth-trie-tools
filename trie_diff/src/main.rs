@@ -1,18 +1,9 @@
-use std::{
-    fs,
-    path::{Path, PathBuf},
-};
+use std::path::PathBuf;
 
 use clap::Parser;
-use protocol_decoder::{
-    compact::compact_prestate_processing::process_compact_prestate_debug,
-    trace_protocol::TrieCompact,
-};
+use common::read_input_from_file;
 
-use eth_trie_utils::{
-    debug_tools::create_diff_between_tries,
-    partial_trie::{HashedPartialTrie, PartialTrie},
-};
+use eth_trie_utils::{debug_tools::diff::create_diff_between_tries, partial_trie::PartialTrie};
 
 #[derive(Debug, Parser)]
 struct ProgArgs {
@@ -39,36 +30,4 @@ fn main() -> anyhow::Result<()> {
     println!("{}", diff);
 
     Ok(())
-}
-
-fn read_input_from_file(p: &Path) -> HashedPartialTrie {
-    match p
-        .extension()
-        .map(|s| s.to_str().unwrap_or_default())
-        .unwrap_or_default()
-    {
-        "compact" => {
-            let out = process_compact_prestate_debug(read_compact_from_file(p)).unwrap();
-            out.witness_out.tries.state
-        }
-        "json" => read_json_trie_from_file(p),
-        _ => panic!(
-            "Input file must either be a `*.json` or a `*.compact` (got a {:?}).",
-            p
-        ),
-    }
-}
-
-fn read_compact_from_file(f_name: &Path) -> TrieCompact {
-    let buf = fs::read_to_string(f_name).unwrap();
-    let payload = buf.trim();
-    let compact_bytes = hex::decode(payload).unwrap();
-
-    TrieCompact(compact_bytes)
-}
-
-fn read_json_trie_from_file(f_name: &Path) -> HashedPartialTrie {
-    let buf = fs::read_to_string(f_name).unwrap();
-    let payload = buf.trim();
-    serde_json::from_str(payload).unwrap()
 }
