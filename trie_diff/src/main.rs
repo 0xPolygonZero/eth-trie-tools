@@ -2,8 +2,8 @@ use std::path::PathBuf;
 
 use clap::Parser;
 use common::read_input_from_file;
-
-use eth_trie_utils::{debug_tools::diff::create_diff_between_tries, partial_trie::PartialTrie};
+use mpt_trie::debug_tools::diff::create_diff_between_tries;
+use mpt_trie::partial_trie::PartialTrie;
 
 #[derive(Debug, Parser)]
 struct ProgArgs {
