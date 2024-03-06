@@ -5,15 +5,7 @@ resolver = "2"
 [workspace.dependencies]
 anyhow = { version = "1.0.75", features = ["backtrace"] }
 clap = { version = "4.4.6", features = ["derive", "env"] }
-eth_trie_utils = "0.6.0"
-protocol_decoder = { git = "https://github.com/0xPolygonZero/proof-protocol-decoder.git", rev = "e0e9338366afe687f22ba0ab9532eb28f326f4b4" }
-serde_json = "1.0.111"
-
-[patch."https://github.com/0xPolygonZero/proof-protocol-decoder.git"]
-protocol_decoder = { path = "../../proof_protocol_decoder/protocol_decoder" }
-
-[patch.crates-io]
-eth_trie_utils = { path = "../../eth_trie_utils" }
-
-[patch."https://github.com/0xPolygonZero/eth_trie_utils.git"]
-eth_trie_utils = { path = "../../eth_trie_utils" }
+mpt_trie = { version = "0.1.0", git = "https://github.com/0xPolygonZero/zk_evm.git", branch = "robins_not_so_awesome_branch_for_brendan" }
+pretty_env_logger = "0.5.0"
+trace_decoder = { version = "0.1.0", git = "https://github.com/0xPolygonZero/zk_evm.git", branch = "robins_not_so_awesome_branch_for_brendan" }
+serde_json = "1.0.114"

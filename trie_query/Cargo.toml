@@ -8,5 +8,6 @@ common = { path = "../common" }
 
 anyhow = { workspace = true }
 clap = { workspace = true }
-eth_trie_utils = { workspace = true }
+mpt_trie ={ workspace = true }
+pretty_env_logger = { workspace = true }
 serde_json = { workspace = true }
