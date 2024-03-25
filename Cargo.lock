@@ -517,8 +517,8 @@ dependencies = [
 
 [[package]]
 name = "evm_arithmetization"
-version = "0.1.1"
-source = "git+https://github.com/0xPolygonZero/zk_evm.git?branch=robins_not_so_awesome_branch_for_brendan#ab7c6cbda46e77877a8462af33bb5a51c714ca97"
+version = "0.1.2"
+source = "git+https://github.com/0xPolygonZero/zk_evm.git?rev=acde8397b5be2c20f60649578159a21a4da325b4#acde8397b5be2c20f60649578159a21a4da325b4"
 dependencies = [
  "anyhow",
  "bytes",
@@ -874,8 +874,8 @@ dependencies = [
 
 [[package]]
 name = "mpt_trie"
-version = "0.1.1"
-source = "git+https://github.com/0xPolygonZero/zk_evm.git?branch=robins_not_so_awesome_branch_for_brendan#ab7c6cbda46e77877a8462af33bb5a51c714ca97"
+version = "0.2.0"
+source = "git+https://github.com/0xPolygonZero/zk_evm.git?rev=acde8397b5be2c20f60649578159a21a4da325b4#acde8397b5be2c20f60649578159a21a4da325b4"
 dependencies = [
  "bytes",
  "enum-as-inner",
@@ -1086,9 +1086,9 @@ dependencies = [
 
 [[package]]
 name = "plonky2"
-version = "0.2.0"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b25deb9a4b9c2014c2f99cd36078f30e453d188d0ca8dd4c5ffd1d494b661ac1"
+checksum = "d04c7dfa293cd62a8e1e3f21157dba8508ab2de6078b0e5fae202a4fc98ef224"
 dependencies = [
  "ahash",
  "anyhow",
@@ -1111,9 +1111,9 @@ dependencies = [
 
 [[package]]
 name = "plonky2_field"
-version = "0.2.0"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "465a741ba134485af571152aab5086457a470aa8893391186cf78dd389694440"
+checksum = "e27aab0723672905a49e4771232d7fcf71b97dd0e57634f1dfb5492635f765fc"
 dependencies = [
  "anyhow",
  "itertools",
@@ -1432,9 +1432,9 @@ checksum = "e6ecd384b10a64542d77071bd64bd7b231f4ed5940fba55e98c3de13824cf3d7"
 
 [[package]]
 name = "starky"
-version = "0.2.1"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "24e0a1eec739c7a67cb1c6f916c0b7bf2d281cf2edb35d3db5caa6989090133e"
+checksum = "acf2fe03f53197fbd5e2f2e5fbb809f8e953881cc729261b55f71134323bbfd6"
 dependencies = [
  "ahash",
  "anyhow",
@@ -1581,8 +1581,8 @@ dependencies = [
 
 [[package]]
 name = "trace_decoder"
-version = "0.1.1"
-source = "git+https://github.com/0xPolygonZero/zk_evm.git?branch=robins_not_so_awesome_branch_for_brendan#ab7c6cbda46e77877a8462af33bb5a51c714ca97"
+version = "0.2.0"
+source = "git+https://github.com/0xPolygonZero/zk_evm.git?rev=acde8397b5be2c20f60649578159a21a4da325b4#acde8397b5be2c20f60649578159a21a4da325b4"
 dependencies = [
  "bytes",
  "ciborium",
@@ -1599,7 +1599,6 @@ dependencies = [
  "rlp",
  "rlp-derive",
  "serde",
- "serde_json",
  "serde_with",
  "thiserror",
 ]
@@ -1628,6 +1627,17 @@ dependencies = [
  "mpt_trie",
  "pretty_env_logger",
  "serde_json",
+]
+
+[[package]]
+name = "trie_stats"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "common",
+ "mpt_trie",
+ "pretty_env_logger",
 ]
 
 [[package]]
