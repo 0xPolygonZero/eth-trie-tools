@@ -2,7 +2,7 @@ use std::path::PathBuf;
 
 use clap::Parser;
 use common::read_input_from_file;
-use eth_trie_utils::{
+use mpt_trie::{
     debug_tools::query::{get_path_from_query, DebugQueryParamsBuilder},
     nibbles::Nibbles,
 };
@@ -14,8 +14,9 @@ struct ProgArgs {
 }
 
 fn main() -> anyhow::Result<()> {
-    let p_args = ProgArgs::parse();
+    pretty_env_logger::init();
 
+    let p_args = ProgArgs::parse();
     let trie = read_input_from_file(&p_args.trie_path);
 
     let query = DebugQueryParamsBuilder::default()

@@ -1,7 +1,7 @@
 use std::{fs, path::Path};
 
-use eth_trie_utils::partial_trie::HashedPartialTrie;
-use protocol_decoder::{
+use mpt_trie::partial_trie::HashedPartialTrie;
+use trace_decoder::{
     compact::compact_prestate_processing::process_compact_prestate_debug,
     trace_protocol::TrieCompact,
 };
