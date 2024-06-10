@@ -6,12 +6,19 @@ use trace_decoder::{
     trace_protocol::TrieCompact,
 };
 
+pub const TRIE_PATH_DOC_STR: &str = r#"
+Each path must point to a file that is either:
+- (`*.compact`) Compact encoding (hex string) of an MPT trie (spec: https://gist.github.com/mandrigin/ff7eccf30d0ef9c572bafcb0ab665cff).
+- (`*.json`) A serialized `HashedPartialTrie`.
+"#;
+
 pub fn read_input_from_file(p: &Path) -> HashedPartialTrie {
     match p
         .extension()
         .map(|s| s.to_str().unwrap_or_default())
         .unwrap_or_default()
     {
+        // For now, if we ever get compact, we're going to just use the state trie.
         "compact" => {
             let out = process_compact_prestate_debug(read_compact_from_file(p)).unwrap();
             out.witness_out.state_trie

@@ -1,5 +1,5 @@
 [workspace]
-members = [ "common", "trie_diff", "trie_query"]
+members = [ "common", "trie_diff", "trie_query", "trie_stats" ]
 resolver = "2"
 
 [workspace.dependencies]
