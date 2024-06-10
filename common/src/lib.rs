@@ -14,7 +14,7 @@ pub fn read_input_from_file(p: &Path) -> HashedPartialTrie {
     {
         "compact" => {
             let out = process_compact_prestate_debug(read_compact_from_file(p)).unwrap();
-            out.witness_out.tries.state
+            out.witness_out.state_trie
         }
         "json" => read_json_trie_from_file(p),
         _ => panic!(
