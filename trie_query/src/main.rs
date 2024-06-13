@@ -26,7 +26,7 @@ struct ProgArgs {
 
 #[derive(Parser, Debug)]
 struct QueryConfig {
-    /// Include the key piece (if the node contains a piece of the key) contained in each node.
+    /// Include the key piece (if the node contains a piece of the key) for each node.
     #[arg(short = 'k', long, default_value_t = true, help_heading = QUERY_CONFIG_STR)]
     include_key_piece_per_node: bool,
 
