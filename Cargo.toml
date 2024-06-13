@@ -1,11 +1,11 @@
 [workspace]
-members = [ "common", "trie_diff", "trie_query"]
+members = [ "common", "trie_diff", "trie_query", "trie_stats" ]
 resolver = "2"
 
 [workspace.dependencies]
 anyhow = { version = "1.0.75", features = ["backtrace"] }
 clap = { version = "4.4.6", features = ["derive", "env"] }
-mpt_trie = { version = "0.1.0", git = "https://github.com/0xPolygonZero/zk_evm.git", branch = "robins_not_so_awesome_branch_for_brendan" }
+mpt_trie = "0.3.0"
 pretty_env_logger = "0.5.0"
-trace_decoder = { version = "0.1.0", git = "https://github.com/0xPolygonZero/zk_evm.git", branch = "robins_not_so_awesome_branch_for_brendan" }
+trace_decoder = "0.4.0"
 serde_json = "1.0.114"

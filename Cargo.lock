@@ -303,6 +303,7 @@ checksum = "acbf1af155f9b9ef647e42cdc158db4b64a1b61f743629225fde6f3e0be2a7c7"
 name = "common"
 version = "0.1.0"
 dependencies = [
+ "clap",
  "hex",
  "mpt_trie",
  "serde_json",
@@ -517,8 +518,9 @@ dependencies = [
 
 [[package]]
 name = "evm_arithmetization"
-version = "0.1.1"
-source = "git+https://github.com/0xPolygonZero/zk_evm.git?branch=robins_not_so_awesome_branch_for_brendan#ab7c6cbda46e77877a8462af33bb5a51c714ca97"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "87d958d9badfbbd52c003da99378ff08c11f16efd4c4729e0fe2ca2224c46e8e"
 dependencies = [
  "anyhow",
  "bytes",
@@ -709,6 +711,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "impl-num-traits"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "951641f13f873bff03d4bf19ae8bec531935ac0ac2cc775f84d7edfdcfed3f17"
+dependencies = [
+ "integer-sqrt",
+ "num-traits",
+ "uint",
+]
+
+[[package]]
 name = "impl-rlp"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -757,6 +770,15 @@ dependencies = [
  "equivalent",
  "hashbrown 0.14.3",
  "serde",
+]
+
+[[package]]
+name = "integer-sqrt"
+version = "0.1.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "276ec31bcb4a9ee45f58bec6f9ec700ae4cf4f4f8f2fa7e06cb406bd5ffdd770"
+dependencies = [
+ "num-traits",
 ]
 
 [[package]]
@@ -874,13 +896,18 @@ dependencies = [
 
 [[package]]
 name = "mpt_trie"
-version = "0.1.1"
-source = "git+https://github.com/0xPolygonZero/zk_evm.git?branch=robins_not_so_awesome_branch_for_brendan#ab7c6cbda46e77877a8462af33bb5a51c714ca97"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c3febfed5b65d35c9b9811733e811a48b0591ed16dc07bee08c213c888b974b8"
 dependencies = [
  "bytes",
  "enum-as-inner",
  "ethereum-types",
  "hex",
+ "impl-codec",
+ "impl-num-traits",
+ "impl-rlp",
+ "impl-serde",
  "keccak-hash 0.10.0",
  "log",
  "num",
@@ -1086,9 +1113,9 @@ dependencies = [
 
 [[package]]
 name = "plonky2"
-version = "0.2.0"
+version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b25deb9a4b9c2014c2f99cd36078f30e453d188d0ca8dd4c5ffd1d494b661ac1"
+checksum = "85f26b090b989aebdeaf6a4eed748c1fbcabf67e7273a22e4e0c877b63846d0f"
 dependencies = [
  "ahash",
  "anyhow",
@@ -1111,9 +1138,9 @@ dependencies = [
 
 [[package]]
 name = "plonky2_field"
-version = "0.2.0"
+version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "465a741ba134485af571152aab5086457a470aa8893391186cf78dd389694440"
+checksum = "3a1dca60ad900d81b1fe2df3d0b88d43345988e2935e6709176e96573f4bcf5d"
 dependencies = [
  "anyhow",
  "itertools",
@@ -1432,9 +1459,9 @@ checksum = "e6ecd384b10a64542d77071bd64bd7b231f4ed5940fba55e98c3de13824cf3d7"
 
 [[package]]
 name = "starky"
-version = "0.2.1"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "24e0a1eec739c7a67cb1c6f916c0b7bf2d281cf2edb35d3db5caa6989090133e"
+checksum = "8a8480ca5b8eedf83ad070a780783b4e21a56c6ef66b4c0d1b7520b72bdfda1b"
 dependencies = [
  "ahash",
  "anyhow",
@@ -1581,8 +1608,9 @@ dependencies = [
 
 [[package]]
 name = "trace_decoder"
-version = "0.1.1"
-source = "git+https://github.com/0xPolygonZero/zk_evm.git?branch=robins_not_so_awesome_branch_for_brendan#ab7c6cbda46e77877a8462af33bb5a51c714ca97"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6b86ec3b0b2f16b755f7f4acff4faa48f0a5458c83cbc8b0ec64557ded12c0f2"
 dependencies = [
  "bytes",
  "ciborium",
@@ -1599,7 +1627,6 @@ dependencies = [
  "rlp",
  "rlp-derive",
  "serde",
- "serde_json",
  "serde_with",
  "thiserror",
 ]
@@ -1628,6 +1655,17 @@ dependencies = [
  "mpt_trie",
  "pretty_env_logger",
  "serde_json",
+]
+
+[[package]]
+name = "trie_stats"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "common",
+ "mpt_trie",
+ "pretty_env_logger",
 ]
 
 [[package]]
